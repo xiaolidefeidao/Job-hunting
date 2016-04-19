@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript">
+        function changeHabit(){
+            var form=document.getElementById('form1');
+//            var temp=form.childNodes;
+            var temp=form.getElementsByTagName('input');//只有getElementsByTagName这一个‘getElement***’类型的方法
+            for (var i=0;i<temp.length;i++){
+                if (temp[i].name='habit'){
+                    temp[i].value='football';
+                }
+            }
+        }
+    </script>
+    <title>DOM元素的操作</title>
+</head>
+<body>
+<input type="text" name="habit" value="ping-pong"/>
+<form id="form1">
+    <input type="text" name="habit" value="basketball"/>
+</form>
+<input type="button" onclick="changeHabit()" value="change">
+</body>
+</html>
