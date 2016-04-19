@@ -1,0 +1,16 @@
+闭包就是能访问一个函数内部变量的函数。闭包的特点：一个是可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中。
+function f1() {
+    var n = 999;
+    nAdd = function () {
+        n += 1
+    };
+    function f2() {
+        console.log(n);
+    }
+
+    return f2;//f2就是一个闭包
+}
+var result = f1();
+result(); // 999
+nAdd();//定义nAdd时前面没加var，那么它是一个全局变量
+result(); // 1000
