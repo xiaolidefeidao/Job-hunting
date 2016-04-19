@@ -16,7 +16,8 @@ function Dog(name) {
 function Pig(name) {
     this.name=name;
 }
-Pig.prototype=new Animal(this.name);
+//Pig.prototype=new Animal('Animal');//'Animal'会被覆盖
+Pig.prototype=new Animal();
 
 
 
@@ -28,4 +29,4 @@ console.log(cat instanceof Cat);//true
 console.log(dog instanceof Animal);//false
 cat.showName();//Black Cat
 dog.showName();//Black Dog
-pig.showName();//Little Pig
+pig.showName();//Little Pig，沿着原型链向上查找
