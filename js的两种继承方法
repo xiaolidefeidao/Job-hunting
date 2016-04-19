@@ -1,0 +1,31 @@
+function Animal(name) {
+    this.name = name;
+    this.showName = function () {
+        console.log(this.name);
+    };
+}
+//继承方式一：call、apply
+function Cat(name) {
+    Animal.call(this, name);
+}
+
+function Dog(name) {
+    Animal.apply(this, name);
+}
+//继承方式二：prototype
+function Pig(name) {
+    this.name=name;
+}
+Pig.prototype=new Animal(this.name);
+
+
+
+
+var cat = new Cat("Black Cat"); 
+var dog = new Dog(["Black Dog"]); //apply必须是array
+var pig = new Pig('Little Pig');
+console.log(cat instanceof Cat);//true
+console.log(dog instanceof Animal);//false
+cat.showName();//Black Cat
+dog.showName();//Black Dog
+pig.showName();//Little Pig
