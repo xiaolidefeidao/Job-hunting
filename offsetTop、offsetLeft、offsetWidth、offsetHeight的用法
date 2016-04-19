@@ -1,0 +1,8 @@
+假设 obj 为某个 HTML 控件。
+obj.offsetTop 指 obj 相对于版面或由 offsetParent 属性指定的父坐标的计算上侧位置，整型，单位像素。
+obj.offsetLeft 指 obj 相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置，整型，单位像素。
+obj.offsetWidth 指 obj 控件自身的绝对宽度，不包括因 overflow 而未显示的部分，也就是其实际占据的宽度，整型，单位像素。
+obj.offsetHeight 指 obj 控件自身的绝对高度，不包括因 overflow 而未显示的部分，也就是其实际占据的高度，整型，单位像素。
+
+网页可见区域宽： document.getElementsByTagName("body")[0].offsetWidth   (包括边线的宽); 
+网页可见区域高： document.getElementsByTagName("body")[0].offsetHeight  (包括边线的宽); 
