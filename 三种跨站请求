@@ -1,0 +1,8 @@
+一、使用CORS机制
+    在服务器端添加一个header (Access-Control-Allow-Origin:{域名//*号代表响应任何主机的请求})
+二、使用JSONP
+    JSONP即：json padding,使用<script>标签且只能发送'get'请求。
+    机制：客户端定义回调函数callback(函数名可自定义，不一定取名callback)，函数名添加在URL发送给服务器；
+          服务器返回一个包装过的json数据—callback({key1:value1,...}),json数据作为参数返回，客户端在回调函数内操作这些数据。
+三、
+  
