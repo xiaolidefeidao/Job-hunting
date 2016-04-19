@@ -1,5 +1,7 @@
 一、XSS跨站脚本攻击(Cross Site Scripting)；防御：
     1、  输入检查、输出检查——HTMLEncode（text.()、html()）、JavaScriptEncode
+        //<h1>hello!</h1>它的innerHTML和innerText都是hello!
+        //<h1>hello!<b>asdfasdf</b></h1>它的innerHTML是hello!<b>asdfasdf</b>;它的innerText是hello!asdfasdf
     2、  防御DOM Based XSS ——先做输出检查，若输出到HTML做HTMLEncode；若输出到事件、JS，做JavaScriptEncode
     
 二、Csrf跨站请求伪造(Cross-site request forgery);防御：
