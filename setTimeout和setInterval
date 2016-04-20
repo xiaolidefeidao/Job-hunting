@@ -3,7 +3,7 @@ setTimeout -- 暂停指定的毫秒数后执行指定的代码
 var icolor=0;
 var iNum=256;
 function setbgColor(){
-    document.body.style.background="#"+icolor*iNum*iNum*iNum+icolor*iNum*iNum+icolor*iNum;
+    document.body.style.backgroundColor="#"+icolor*iNum*iNum*iNum+icolor*iNum*iNum+icolor*iNum;
     if ((icolor+=10)<iNum){
         setTimeout(setbgColor,1000);
     }
@@ -14,3 +14,15 @@ clearTimeout -- 取消指定的setTimeout函数将要执行的代码
   如果还没有执行setTimeout函数中的代码，就调用了clearTimeout函数，那么就不会执行setTimeout函数中的代码了。
 var iID=setTimeout("document.bgColor='#000000'", 1000);//每次调用setTimeout函数都会产生一个唯一的ID
 clearTimeout(iID);
+
+setInterval -- 间隔指定的毫秒数不停地执行指定的代码
+setInterval函数会重复间隔一段时间执行代码，因此应使用clearInterval函数将其停止，或者页面被卸载也会自动停止。
+var icolor=0;
+var iNum=256;
+var iID=setInterval(setbgColor,1000);
+function setbgColor(){
+	document.body.style.backgroundColor="#"+icolor*iNum*iNum*iNum+icolor*iNum*iNum+icolor*iNum;
+	if((icolor+=10)>iNum){
+		clearInterval(iID);
+	}
+}
