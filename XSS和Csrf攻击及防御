@@ -1,5 +1,5 @@
 一、XSS跨站脚本攻击(Cross Site Scripting)；防御：
-    1、  输入检查、输出检查——HTMLEncode（text.()、html()）、JavaScriptEncode
+    1、  输入检查、输出检查——HTMLEncode（jquery的text()、html()）、JavaScriptEncode
         //<h1>hello!</h1>它的innerHTML和innerText都是hello!
         //<h1>hello!<b>asdfasdf</b></h1>它的innerHTML是hello!<b>asdfasdf</b>;它的innerText是hello!asdfasdf
     2、  防御DOM Based XSS ——先做输出检查，若输出到HTML做HTMLEncode；若输出到事件、JS，做JavaScriptEncode
@@ -14,3 +14,6 @@
         如果应用于“anti csrf攻击”，则服务器端会对Token值进行验证，判断是否和session中的Token值相等，若相等，则可以证明请求有效，不是伪造的。
     不过，如果应用于“防止表单重复提交”，服务器端第一次验证相同过后，会将session中的Token值更新下，若用户重复提交，第二次的验证判断将失败，
     因为用户提交的表单中的Token没变，但服务器端session中Token已经改变了。
+
+XSS是利用站点内的信任用户，发起攻击。
+CSRF通过伪装成来自受信任用户的请求来利用网站。
