@@ -1,0 +1,14 @@
+#http://www.dreamdu.com/javascript/what_is_bom/
+BOM体系：window（窗口，顶层核心）对象包含六个子对象：document（DOM体系）、frames、history、location、navigator、screen。
+        document：
+        frames：<iframe>和<frame>的区别，iframe更灵活，可以嵌入网页的任意位置，方便数据交换（postMessage方法），缺点是位置在不同
+        		的浏览器和分辨率下有可能不同，有时会把本来好好的页面搞得变形；frame必须放在frameset中，frameset与body不能一起使用，
+        		但是兼容frame的浏览器较多。
+        history：JavaScript的history对象记录了用户曾经浏览过的页面，并可以实现浏览器前进与后退相似的导航功能可以通过back函数后退一
+        		个页面，forward函数前进一个页面，或者使用go函数任意后退或前进页面，还可以通过length属性查看history对象中存储的页面数。
+        location：location既是window对象的属性又是document对象的属性，它包含以下属性：protocol、host（hostname、port）、pathname、
+        		search、hash（修改location.hash会跳到当前页面中的anchor(<a id="name">或者<div id="id">等)名字的标记(如果有)，而且页面
+        		不会被重新加载）
+        navigator：中文"导航器"，有属性appCodeName、appName、appVersion、cookieEnabled、userAgent（通常使用navigator.userAgent属性
+        			判断用户使用的浏览器与操作系统）等。
+        screen：用于获取用户的屏幕信息，availHeight 属性--窗口可以使用的屏幕高度，单位像素、availWidth属性--窗口可以使用的屏幕宽度，单位像素
