@@ -25,7 +25,7 @@ HTTP是一组无状态协议。
 服务器。一般这个cookie的名字都是类似于SEEESIONID。但cookie可以被人为的禁止，则必须有其他机制以便在cookie被禁止时
 仍然能够把session id传递回服务器。
     经常被使用的一种技术叫做URL重写，就是把session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器
-会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。比如： 
+会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器(类似token验证)。比如： 
 <form name="testform" action="/xxx"> 
 <input type="hidden" name="jsessionid" value="ByOK3vjFD75aPnrF7C2HmdnV6QZcEbzWoWiBYEnLerjQ99zWpBng!-145788764"> 
 <input type="text"> 
