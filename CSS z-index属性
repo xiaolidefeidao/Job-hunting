@@ -1,0 +1,3 @@
+z-index 只有在设置position为relative/absolute/fixed时才生效
+        从父原则、层级树
+        在同一层级的元素，具有相同z-index时，写在后面的元素覆盖前面的元素
