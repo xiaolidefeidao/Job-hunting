@@ -1,0 +1,7 @@
+IE的盒子模型和标准盒子模型有所不同
+如何辨别是哪种盒子模型：
+<script language="javascript" src="jquery.min.js"></script>
+<script language="javascript">
+  var sbox = $.boxmodel ? "标准w3c":"ie";               //使用jquery的boxmodel属性
+  document.write("您的页面目前支持："+sbox+"盒子模型");
+</script>
