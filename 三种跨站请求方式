@@ -12,7 +12,7 @@
         if(event.origin !="http://sender:port"){ 
             console.log("the event doesn't come from sender!"); 
             return; 
-        } 
+        } ,false                                                 //控制触发顺序
         //操作数据event.data
         //更新DOM
     ｝
