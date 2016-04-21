@@ -6,3 +6,4 @@
 UI 后端－ 用来绘制类似组合选择框及对话框等基本组件，具有不特定于某个平台的通用接口，底层使用操作系统的用户接口
 JS解释器－ 用来解释执行JS代码
 数据存储－ 属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，HTML5定义了Web存储技术（http://www.w3school.com.cn/html5/html_5_webstorage.asp）
+//document.reay（dom文档加载完成）一般比window.onload（所有文件加载完成，js、css、图片等加载完成）先执行
