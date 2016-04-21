@@ -40,6 +40,7 @@ w.terminate();
 </body>
 </html>
 //以下是demo_workers.js
+//这里可以使用onmessage接收页面传过来的数据onmessage=function(event){//"your code"}
 var i=0;
 function timedCount()
 {
