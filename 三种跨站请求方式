@@ -4,7 +4,7 @@
     JSONP即：json padding,使用<script>标签且只能发送'get'请求。
     机制：客户端定义回调函数callback(函数名可自定义，不一定取名callback)，函数名添加在URL发送给服务器；
           服务器返回一个包装过的json数据—callback({key1:value1,...}),json数据作为参数返回，客户端在回调函数内操作这些数据。
-三、HTML5的postMessage方法
+三、HTML5的postMessage、onmessage方法
     详见： http://supercharles888.blog.51cto.com/609344/857637
     存在sender.html和receiver.html两个网页，使用<iframe>标签将receiver.html嵌入sender.html；
     window.iframes[0].postMessage(data,"http://receiver:port");//window是sender.html
