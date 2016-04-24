@@ -1,11 +1,17 @@
+远古时期，使用cookies:http请求头上会带着（臃肿，安全隐患），大小4K，主Domain污染(主域名setcookie的内容会加在子域名cookie中)。
+有个HTTP属性，设为true时，cookie只能由服务器端修改。将各子域名的document.domain设为主域名即可实现子域名间的数据共享。
+UserData,只有IE支持，数据最终存在一个XML文件，64K。
 HTML5 提供了两种在客户端存储数据的新方法：(大小约5MB)
-    localStorage - 没有时间限制的数据存储
-    sessionStorage - 针对一个 session 的数据存储
+应用场景：弱网络环境
+    localStorage - 没有时间限制的数据存储（缺点：需要自己写一个业务控制过期时间。使用更新的算法LRU、FIFO等）；
+    		使用try、catch以免有的浏览器不支持；子域名间不能共享存储数据，要使用跨域，postMessage等方法；服务端获取数据的问题。
+    sessionStorage - 针对一个(窗口) session 的数据存储。
 之前，这些都是由 cookie 完成的。但是 cookie 不适合大量数据的存储，因为它们由每个对服务器的请求来传递，这使得 cookie 速度很慢而且效率也不高。
 在 HTML5 中，数据不是由每个服务器请求传递的，而是只有在请求时使用数据(使用 JavaScript 来存储和访问数据)。
 它使在不影响网站性能的情况下存储大量数据成为可能。
 对于不同的网站，数据存储于不同的区域，并且一个网站只能访问其自身的数据。
     localStorage 方法存储的数据没有时间限制。第二天、第二周或下一年之后，数据依然可用。
+    API: getItem/setItem/removeItem/key/clear;可以存储：数组、JSON数据、图片（使用canvas,base 64）、脚本、样式文件。
 <!DOCTYPE HTML>
 <html>
 <body>
@@ -45,3 +51,7 @@ document.write("Visits " + sessionStorage.pagecount + " time(s) this session.");
 <p>请关闭浏览器窗口，然后再试一次，计数器已经重置了。</p>
 </body>
 </html>
+indexedDB,按域名分配独立空间，一个独立域名下可创建多个数据库，每个数据库可创建多个对象存储空间（表），每个表可存储多个对象数据。
+使用transaction(事务)保证数据的一致性和可靠性，（只读、只写、可读可写）；查询要借助游标cusor
+应用缓存：
+navigator.online检测是否在线
