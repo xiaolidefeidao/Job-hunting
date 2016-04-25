@@ -1,0 +1,46 @@
+var str = "{{name}} has a friend {{friend.name}},he has a {{friend.car.color}} car";
+var data = {
+    name: "lxf",
+    friend: {
+        name: "XX",
+        car: {
+            color: "red"
+        }
+    }
+};
+function easyTpl(tpl, data) {
+    var reg = /{{([a-zA-Z_$][a-zA-Z_$0-9\.]*)}}/g;
+    return tpl.replace(reg, function (raw, key, offset, str) {
+        //console.log(arguments);
+        var lookup = data;
+        var paths = key.split(".");
+        while (paths.length > 0) {
+            lookup = lookup[paths.shift()];
+        }
+        return lookup || raw;
+    });
+}
+console.log(easyTpl(str, data));//lxf has a friend XX,he has a red car
+console.log(str);//{{name}} has a friend {{friend.name}},he has a {{friend.car.color}} car
+//封装；(function(x,y,z){})(x,y,z)函数立即执行
+(function(name,definition,context){
+    if (typeof module!='undefined'&&module.exports){
+        module.exports=definition();
+    }else if(typeof context['define']=='function'&& (context['define']['amd']||context['define']['cmd'])){
+        define(definition);
+    }else{
+        context[name]=definition();
+    }
+})('easyTpl',function(){
+    return function (tpl, data) {
+        var reg = /{{([a-zA-Z_$][a-zA-Z_$0-9\.]*)}}/g;
+        return tpl.replace(reg, function (raw, key, offset, str) {
+            var lookup = data;
+            var paths = key.split(".");
+            while (paths.length > 0) {
+                lookup = lookup[paths.shift()];
+            }
+            return lookup || raw;
+        });
+    };
+},this);
