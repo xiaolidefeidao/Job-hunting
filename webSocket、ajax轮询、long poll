@@ -7,6 +7,9 @@ long poll 其实原理跟 ajax轮询 差不多，都是采用轮询的方式，�
 服务端：额。。 等待到有消息的时候。。来 给你（Response）
 客户端：啦啦啦，有没有新信息，没有的话就等有了才返回给我吧（Request） -loop
 
+ajax轮询 需要服务器有很快的处理速度和资源。（速度）
+long poll 需要有很高的并发，也就是说同时接待客户的能力。（场地大小）
+
 作者：Ovear
 链接：https://www.zhihu.com/question/20215561/answer/40316953
 来源：知乎
