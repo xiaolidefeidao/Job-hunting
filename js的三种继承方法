@@ -20,8 +20,16 @@ function Pig(name) {
 }
 //Pig.prototype=new Animal('Animal');//'Animal'会被覆盖
 Pig.prototype=new Animal();
+//继承方式三：构造函数继承
+//实现原理:让父类的构造函数成为子类的方法,然后调用该子类的方法,通过this关键字给所有的属性和方法赋值
+function Sheep(name){
+    this.constructor=Animal;
+    this.constructor(name);
+    delete this.constructor;
+}
 
-
+var sheep=new Sheep("sheep");
+sheep.showName();//sheep
 var cat = new Cat("Black Cat"); 
 var dog = new Dog(["Black Dog"]); //apply必须是array
 var pig = new Pig('Little Pig');
