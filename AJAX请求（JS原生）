@@ -1,0 +1,33 @@
+function CreateXmlHttp() {
+    var xmlhttp;
+    //非IE浏览器创建XmlHttpRequest对象
+    if (window.XmlHttpRequest) {
+        xmlhttp = new XmlHttpRequest();
+    }
+    //IE浏览器创建XmlHttpRequest对象
+    if (window.ActiveXObject) {
+        try {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        catch (e) {
+            try {
+                xmlhttp = new ActiveXObject("msxml2.XMLHTTP");
+            }
+            catch (ex) { }
+        }
+    }
+    return xmlhttp;
+}
+function getText(url,callback){
+    var xmlhttp=CreateXmlHttp();
+    xmlhttp.open("GET",url);
+    xmlhttp.onreadystatechange=function(){
+        if (xmlhttp.readyState==4&&xmlhttp.status==200){
+            var type=xmlhttp.getResponseHeader("Content-Type");
+            if (type.match(/^text/)){
+                callback(xmlhttp.responseText);
+            }
+        }
+    }
+    xmlhttp.send(null);
+}
