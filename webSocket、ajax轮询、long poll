@@ -1,7 +1,8 @@
 #https://www.zhihu.com/question/20215561
 在讲Websocket之前，我就顺带着讲下 long poll 和 ajax轮询 的原理。
 首先是 ajax轮询 ，ajax轮询 的原理非常简单，让浏览器隔个几秒就发送一次请求，询问服务器是否有新信息。
-long poll 其实原理跟 ajax轮询 差不多，都是采用轮询的方式，不过采取的是阻塞模型（一直打电话，没收到就不挂电话），也就是说，客户端发起连接后，如果没消息，就一直不返回Response给客户端。直到有消息才返回，返回完之后，客户端再次建立连接，周而复始。
+long poll 其实原理跟 ajax轮询 差不多，都是采用轮询的方式，不过采取的是阻塞模型（一直打电话，没收到就不挂电话），
+也就是说，客户端发起连接后，如果没消息，就一直不返回Response给客户端。直到有消息才返回，返回完之后，客户端再次建立连接，周而复始。
 场景再现
 客户端：啦啦啦，有没有新信息，没有的话就等有了才返回给我吧（Request）
 服务端：额。。 等待到有消息的时候。。来 给你（Response）
@@ -14,3 +15,45 @@ long poll 需要有很高的并发，也就是说同时接待客户的能力。�
 链接：https://www.zhihu.com/question/20215561/answer/40316953
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+Server-Sent Events
+HTML5 Server-Sent 事件模型允许您从服务器 push 实时数据到浏览器。
+在现存的 Ajax 模式中，web 页面会持续不断地请求服务器传输新数据，由客户端负责请求数据。而在服务端发送模式下，无需在客户端代码中执行
+连续的数据请求，而是由服务端 push 推送更新。一旦您在页面中初始化了 Server-Sent 事件，服务端脚本将持续地发送更新。
+客户端 JavaScript 代码一旦接收到更新就将新的数据写入页面中展示出来。
+
+客户端：创建 EventSource 对象，并监听 onmessage 事件
+if (!!window.EventSource) { 
+// 创建 EventSource 实例，传入 server 地址
+var source = new EventSource('/TestHTML5/ServerSentEvent'); 
+} else { 
+console.log("Your browser doesn't support server-sent event"); 
+} 
+// 监听 message 事件，等待接收服务器端发送过来的数据
+source.addEventListener('message', function(event) { 
+//event 参数中有 data 属性，就是服务器发送过来的数据
+console.log(event.data); 
+}, false); 
+
+//EventSource 还提供了 onopen 以及 onerror 事件
+source.addEventListener('open', function(event) { 
+}, false); 
+
+source.addEventListener('error', function(event) { 
+if (event.readyState == EventSource.CLOSED) { 
+} 
+}, false);
+
+服务器端，在 Java 语言实现的 Servlet doGet 方法中使用 response 对象向客户端写数据
+// 这里必须设置 Content-Type 为 text/event-stream 
+response.setHeader("Content-Type", "text/event-stream"); 
+response.setHeader("Cache-Control", "no-cache"); 
+response.setCharacterEncoding ("UTF-8"); 
+
+String id = new Date().toString(); 
+response.getWriter().println("id:"+id); 
+// 向客户端写两行数据
+response.getWriter().println("data:server-sent event is working."); 
+response.getWriter().println("data:test server-sent event multi-line data"); 
+response.getWriter().println(); 
+response.getWriter().flush();
