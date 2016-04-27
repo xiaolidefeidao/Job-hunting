@@ -39,7 +39,7 @@ w.terminate();
 </script>
 </body>
 </html>
-//以下是demo_workers.js
+//以下是demo_workers.js;******************在这里是无法操作DOM的，没有DOM对象*******************
 //这里可以使用onmessage接收页面传过来的数据onmessage=function(event){//"your code"}
 var i=0;
 function timedCount()
