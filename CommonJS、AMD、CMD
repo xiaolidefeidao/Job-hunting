@@ -1,4 +1,17 @@
 requirejs-->AMD(异步模块定义)
+jquery遵循的AMD规范，在seajs中使用需要对源码进行修改。
+jquery-1.11原本的定义：
+1 if (typeof define === "function" && define.amd) {
+2         define("jquery", [], function () {
+3         return jQuery;
+4    });
+5 }
+
+修改如下
+
+1 if (typeof define === "function") {      //合理的路径
+2     define("../script/jquery-1.11.1", [], function () { return jQuery; });
+3 }
 seajs-->CMD(通用模块定义)
 SeaJS对模块的态度是懒执行, 而RequireJS对模块的态度是预执行。
 SeaJS只会在真正需要使用(依赖)模块时才执行该模块，SeaJS是异步加载模块的没错, 但执行（解析）模块的顺序也是严格按照模块在代码中出现(require)的顺序。
