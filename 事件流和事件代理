@@ -15,17 +15,17 @@ window.addEventListener("message",function(event){
     <title>事件代理</title>
 </head>
 <body>
-<ul id="1">
+<ul id="demo">
     <li id="post-1">Item 1</li>
     <li id="post-2">Item 2</li>
     <li id="post-3">Item 3</li>
     <li id="post-4">Item 4</li>
 </ul>
 <script>
-    var test = document.getElementById("1");
+    var test = document.querySelector("#demo");
     console.log(test);
     test.addEventListener("click", function (e) {
-        // 检查事件源e.targe是否为Li
+        // 检查事件源e.targe是否为Li;srcElement是IE下的属性/target是Firefox下的属性/Chrome浏览器同时有这两个属性
         console.log(e.target.nodeName);//LI
         if (e.target && e.target.nodeName.toUpperCase() == "LI") {
             // 真正的处理过程在这里
