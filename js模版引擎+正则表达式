@@ -9,7 +9,7 @@ var data = {
     }
 };
 function easyTpl(tpl, data) {
-    var reg = /{{([a-zA-Z_$][a-zA-Z_$0-9\.]*)}}/g;
+    var reg = /{{([a-zA-Z_$][a-zA-Z_$0-9\.]*)}}/g;    // var reg = /{{(.*?)}}/igm;
     return tpl.replace(reg, function (raw, key, offset, str) {
         //console.log(arguments);
         var lookup = data;
