@@ -1,0 +1,17 @@
+// 对象
+var man = {
+    hands: 2,
+    legs: 2,
+    heads: 1
+};
+for (var i in man) {
+    if (Object.prototype.hasOwnProperty.call(man, i)) { // 过滤
+        console.log(i, ":", man[i]);
+    }
+}//hands : 2  legs : 2  heads : 1
+var j, hasOwn = Object.prototype.hasOwnProperty;
+for (j in man) {
+    if (hasOwn.call(man, j)) { // 过滤
+        console.log(j, ":", man[j]);
+    }
+}//hands : 2  legs : 2  heads : 1
