@@ -9,7 +9,7 @@ function setbgColor(){
     }
 }
 setTimeout(setbgColor,1000);//触发函数
-
+//setTimeout("setbgColor()",1000);我们要避免使用eval()，它很邪恶。如果是有参数的function可以：setTimeout(function(){setbgColor(x,y,z);},1000);
 clearTimeout -- 取消指定的setTimeout函数将要执行的代码
   如果还没有执行setTimeout函数中的代码，就调用了clearTimeout函数，那么就不会执行setTimeout函数中的代码了。
 var iID=setTimeout("document.bgColor='#000000'", 1000);//每次调用setTimeout函数都会产生一个唯一的ID
