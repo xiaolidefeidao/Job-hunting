@@ -1,10 +1,10 @@
 function CreateXmlHttp() {
     var xmlhttp;
-    //非IE浏览器创建XmlHttpRequest对象
-    if (window.XmlHttpRequest) {
-        xmlhttp = new XmlHttpRequest();
+    //非IE浏览器创建XMLHttpRequest对象
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
     }
-    //IE浏览器创建XmlHttpRequest对象
+    //IE5/IE6浏览器创建XmlHttpRequest对象
     if (window.ActiveXObject) {
         try {
             xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
