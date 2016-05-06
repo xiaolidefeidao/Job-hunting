@@ -5,7 +5,7 @@ var man = {
     heads: 1
 };
 for (var i in man) {
-    if (Object.prototype.hasOwnProperty.call(man, i)) { // 过滤
+    if (Object.prototype.hasOwnProperty.call(man, i)) { // 过滤;man.hasOwnProperty(i);{}.hasOwnProperty.call(man,i);
         console.log(i, ":", man[i]);
     }
 }//hands : 2  legs : 2  heads : 1
