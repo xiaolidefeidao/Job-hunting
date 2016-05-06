@@ -3,6 +3,26 @@
         //<h1>hello!</h1>它的innerHTML和innerText都是hello!
         //<h1>hello!<b>asdfasdf</b></h1>它的innerHTML是hello!<b>asdfasdf</b>;它的innerText是hello!asdfasdf
     2、  防御DOM Based XSS ——先做输出检查，若输出到HTML做HTMLEncode；若输出到事件、JS，做JavaScriptEncode
+function htmlEncode ( str ) {
+    var _str = '';
+    if ( str.length == 0 ) return '';
+    _str = str .replace(/&/g, "&");
+    _str = _str.replace(/</g, "&lt;");
+    _str = _str.replace(/>/g, "&gt;");
+    _str = _str.replace(/"/g, "&quot;");
+    _str = _str.replace(/ /g, "&nbsp;");
+    return _str;
+}
+function htmlDecode ( str ) {
+    var _str = '';
+    if ( str.length == 0 ) return '';
+    _str = str .replace(/&/g, '&');
+    _str = _str.replace(/&lt;/g, '<');
+    _str = _str.replace(/&gt;/g, '>');
+    _str = _str.replace(/&quot;/g, '"');
+    _str = _str.replace(/&nbsp;/g, ' ');
+    return _str;
+}
         //使用XSS劫持cookie
 二、Csrf跨站请求伪造(Cross-site request forgery);防御：
     token、验证码（静态图片或gif图片、语音验证码、短信验证码）。
