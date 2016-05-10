@@ -12,7 +12,7 @@ function f1() {
 
     return f2;//f2就是一个闭包
 }
-var result = f1();
+result = f1();//前面不能用var来声明，否则不能用delete删除
 result(); // 999
 nAdd();//定义nAdd时前面没加var，那么它是一个全局变量
 result(); // 1000
