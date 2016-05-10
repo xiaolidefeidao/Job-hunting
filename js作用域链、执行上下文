@@ -1,4 +1,5 @@
-为什么说evil、with、catch很邪恶呢，因为它们会破坏（扩大）作用域链，它们会先在__proto__链寻找变量，再从__parent__链寻找变量，若是都没找到即undefined.
+为什么说eval、with、catch很邪恶呢，因为它们会破坏（扩大）作用域链，with会先在__proto__链寻找变量，再从__parent__链寻找变量，若是都没找到即undefined.
+eval可以把调用上下文作为第二个参数传递给eval。
 变量对象(variable object) 是与执行上下文相关的数据作用域(scope of data) 。
 它是与上下文关联的特殊对象，用于存储被定义在上下文中的变量(variables) 和函数声明(function declarations) 。
 当函数被调用者激活，这个特殊的活动对象(activation object) 就被创建了。它包含普通参数(formal parameters) 与特殊参数(arguments)对象(具有索引
