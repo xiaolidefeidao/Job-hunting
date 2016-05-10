@@ -1,0 +1,6 @@
+为什么说evil、with、catch很邪恶呢，因为它们会破坏（扩大）作用域链，它们会先在__proto__链寻找变量，再从__parent__链寻找变量，若是都没找到即undefined.
+变量对象(variable object) 是与执行上下文相关的数据作用域(scope of data) 。
+它是与上下文关联的特殊对象，用于存储被定义在上下文中的变量(variables) 和函数声明(function declarations) 。
+当函数被调用者激活，这个特殊的活动对象(activation object) 就被创建了。它包含普通参数(formal parameters) 与特殊参数(arguments)对象(具有索引
+属性的参数映射表)。活动对象在函数上下文中作为变量对象使用。
+即：函数的变量对象保持不变，但除去存储变量与函数声明之外，还包含一个特殊对象arguments 。
