@@ -39,10 +39,11 @@ cat.showName();//Black Cat
 dog.showName();//Black Dog
 pig.showName();//Little Pig，沿着原型链向上查找
 
-
-
+***************************************************
 var a={x:10,y:20};
 var b={z:30};
 b.__proto__=a
 console.log(b.x)//10
 console.log(b.y)//20
+prototype是函数的一个属性（每个函数都有一个prototype属性），这个属性是一个指针，指向一个对象。它是显示修改对象的原型的属性。
+__proto__是一个对象拥有的内置属性（请注意：prototype是函数的内置属性，__proto__是对象的内置属性），是JS内部使用寻找原型链的属性。
