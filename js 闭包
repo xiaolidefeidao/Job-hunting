@@ -1,5 +1,6 @@
 闭包就是能访问一个函数内部变量的函数。闭包的特点：一个是可以读取函数内部的变量，另一个就是让这些变量的值始终保持在内存中（避免了
     垃圾回收，但另一方面可能会导致浏览器内存泄漏，优化：在函数执行完之后，删除变量）。
+    闭包是一系列代码块（在ECMAScript中是函数），并且静态保存所有父级的作用域。通过这些保存的作用域来搜寻到函数中的自由变量。
 function f1() {
     var n = 999;
     nAdd = function () {
@@ -15,3 +16,21 @@ var result = f1();
 result(); // 999
 nAdd();//定义nAdd时前面没加var，那么它是一个全局变量
 result(); // 1000
+delete result;
+
+function baz() {
+    var x = 1;
+    return {
+        foo: function foo() { return ++x; },
+        bar: function bar() { return --x; }
+    };
+}
+var closures = baz();
+var tt = baz();
+console.log(
+    closures.foo(), // 2
+    closures.bar() // 1
+);
+console.log(
+    tt.bar() // 0
+);
