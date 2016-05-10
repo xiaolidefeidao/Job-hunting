@@ -1,3 +1,4 @@
+ECMAScript只使用静态（词法）作用域
 为什么说eval、with、catch很邪恶呢，因为它们会破坏（扩大）作用域链，with会先在__proto__链寻找变量，再从__parent__链寻找变量，若是都没找到即undefined.
 eval可以把调用上下文作为第二个参数传递给eval。
 with声明和catch语句。它们添加到作用域链的最前端.
