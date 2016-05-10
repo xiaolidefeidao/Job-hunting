@@ -38,3 +38,11 @@ console.log(dog instanceof Animal);//false
 cat.showName();//Black Cat
 dog.showName();//Black Dog
 pig.showName();//Little Pig，沿着原型链向上查找
+
+
+
+var a={x:10,y:20};
+var b={z:30};
+b.__proto__=a
+console.log(b.x)//10
+console.log(b.y)//20
