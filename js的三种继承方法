@@ -1,3 +1,4 @@
+原型继承对应的继承原型链；call、apply对应的继承this;构造函数对应的继承全部！！！
 function Animal(name) {
     this.name = name;
     this.showName = function () {
