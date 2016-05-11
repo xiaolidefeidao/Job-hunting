@@ -1,0 +1,20 @@
+var Singleton=(function(){
+    var instance;
+    function init(){
+        return {
+            publicMethod:function(){
+                console.log('hello world');
+            },
+            publicProperty:"something"
+        };
+    }
+    return {
+        getInstance:function(){
+            if (!instance){
+                instance=init();
+            }
+            return instance;
+        }
+    };
+})();
+Singleton.getInstance().publicMethod()//hello world
