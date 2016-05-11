@@ -7,7 +7,7 @@ function Animal(name) {
 //继承方式一：call、apply
 function Cat(name) {
     //this.name='name'; 这句话与它的位置有关，被下面的call方法覆盖
-    Animal.call(this, 'cat-animal');//最好时是放在第一句
+    Animal.call(this, 'cat-animal');//最好时是放在第一句;//不会继承父类原型
     //this.name='name'; 这句话与它的位置有关，覆盖上方的call方法
 }
 
