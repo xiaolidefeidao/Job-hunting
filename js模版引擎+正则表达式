@@ -44,3 +44,10 @@ console.log(str);//{{name}} has a friend {{friend.name}},he has a {{friend.car.c
         });
     };
 },this));
+
+js 默认不支持 trim() 方法，但是 firefox 支持该方法， 
+可以通过为 String 类，添加1个自定义 trim() 方法，来实现通用的 trim() 支持， 
+
+String.prototype.trim=function() {  
+    return this.replace(/(^\s*)|(\s*$)/g,'');  
+};  
