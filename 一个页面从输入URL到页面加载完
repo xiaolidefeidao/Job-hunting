@@ -4,4 +4,4 @@ HTTP协议：发送HTTP请求，先建立TCP连接（三次握手），发送请
 字段状态保持机制，http是一个无状态协议。
 也可以涉及到websocket协议,websocket协议基于HTTP协议，通过第一个HTTP Request（在这个header中有一个字段upgrade,告诉服务器使用的是websocket协议）
 建立了TCP连接后，之后的交换数据都不需要再发HTTP Rquest了，建立了一个全双工通道。可以讲到HTTP协议下的AJAX轮询、long poll。
-客户端在接收到数据后，涉及到浏览器的工作原理，以及web storage的知识点。
+客户端在接收到数据后，涉及到浏览器的工作原理（渲染引擎单线程，js、css异步加载等优化），以及web storage的知识点。
