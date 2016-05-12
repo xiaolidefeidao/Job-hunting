@@ -13,7 +13,7 @@ TIME_WAIT状态的存在有两个理由：（1）让4次挥手关闭流程更加
 #http://blog.chinaunix.net/uid-26833883-id-3627644.html
 应用层
 传输层：UDP TCP
-网际层：IP ICMP IGMP
+网际层：IP ICMP IGMP(互联网组管理协议)
 链路层：ARP(ip->mac) RARP(mac->ip)
 TCP采用一种名为“带重传功能的肯定确认（positive acknowledge with retransmission）”的技术作为提供可靠数据传输服务的基础。
 
