@@ -5,7 +5,7 @@
 由于现在client并没有发出建立连接的请求，因此不会理睬server的确认，也不会向server发送ack包。但server却以为新的运输连接已经建立，并一直等待client发来数据。
 这样，server的很多资源就白白浪费掉了。
 为什么是四次挥手？为什么要等待2MSL？
-TIME_WAIT状态的存在有两个理由：（1）让4次握手关闭流程更加可靠；4次握手的最后一个ACK是是由主动关闭方发送出去的，若这个ACK丢失，
+TIME_WAIT状态的存在有两个理由：（1）让4次挥手关闭流程更加可靠；4次握手的最后一个ACK是是由主动关闭方发送出去的，若这个ACK丢失，
 被动关闭方会再次发一个FIN过来。若主动关闭方能够保持一个2MSL的TIME_WAIT状态，则有更大的机会让丢失的ACK被再次发送出去。
 （2）防止lost duplicate对后续新建正常链接的传输造成破坏。大家都知道TCP是流式的，所有包到达的顺序是不一致的，依靠序列号由TCP协议栈做顺序的
 拼接；假设一个incarnation connection这时收到的seq=1000, 来了一个lost duplicate为seq=1000, len=1000, 则tcp认为这个lost duplicate合法，
