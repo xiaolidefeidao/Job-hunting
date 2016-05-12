@@ -10,14 +10,16 @@ TIME_WAIT状态的存在有两个理由：（1）让4次挥手关闭流程更加
 （2）防止lost duplicate对后续新建正常链接的传输造成破坏。大家都知道TCP是流式的，所有包到达的顺序是不一致的，依靠序列号由TCP协议栈做顺序的
 拼接；假设一个incarnation connection这时收到的seq=1000, 来了一个lost duplicate为seq=1000, len=1000, 则tcp认为这个lost duplicate合法，
 并存放入了receive buffer，导致传输出现错误。通过一个2MSL TIME_WAIT状态，确保所有的lost duplicate都会消失掉，避免对新连接造成错误。
-
+#http://blog.chinaunix.net/uid-26833883-id-3627644.html
 应用层
 传输层：UDP TCP
 网际层：IP ICMP IGMP
 链路层：ARP(ip->mac) RARP(mac->ip)
+TCP采用一种名为“带重传功能的肯定确认（positive acknowledge with retransmission）”的技术作为提供可靠数据传输服务的基础。
+
 UDP协议也是传输层协议，它是无连接，不保证可靠的传输层协议。
-I P是T C P / I P协议族中最为核心的协议。所有的T C P、U D P、I C M P及I G M P数据都以I P数据
-报格式传输。它的特点如下:
+
+I P是T C P / I P协议族中最为核心的协议。所有的T C P、U D P、I C M P及I G M P数据都以I P数据报格式传输。它的特点如下:
 不可靠（u n r e l i a b l e）的意思是它不能保证 I P数据报能成功地到达目的地。 I P仅提供最好的传输服务。如果发生某种错误时，如某个路由器
 暂时用完了缓冲区， I P有一个简单的错误处理算法：丢弃该数据报，然后发送 I C M P消息报给信源端。任何要求的可靠性必须由上层来提供（如T C P） 。
 
