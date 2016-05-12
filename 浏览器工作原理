@@ -6,7 +6,7 @@
 UI 后端－ 用来绘制类似组合选择框及对话框等基本组件，具有不特定于某个平台的通用接口，底层使用操作系统的用户接口
 JS解释器－ 用来解释执行JS代码
 数据存储－ 属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，HTML5定义了Web存储技术（http://www.w3school.com.cn/html5/html_5_webstorage.asp）
-//document.reay（dom文档加载完成）一般比window.onload（所有文件加载完成，js、css、图片等加载完成）先执行
+//document.reay（dom文档加载完成）一般比window.onload（所有文件加载完成，js、css、图片等加载完成）先执行；onload 属性在对象已加载时触发。
 下面是渲染引擎在取得内容之后的基本流程：
 　　解析html以构建dom树 -> 构建render树 -> 布局render树 -> 绘制render树
 　　渲染引擎开始解析html，并将标签转化为内容树中的dom节点。接着，它解析外部CSS文件及style标签中的样式信息。这些样式信息以及html中的可见性指令将被用来构建另一棵树——render树。
@@ -17,3 +17,5 @@ JS解释器－ 用来解释执行JS代码
 它是解析完一部分内容就显示一部分内容，同时，可能还在通过网络下载其余内容。
 渲染引擎是单线程的，除了网络操作以外，几乎所有的事情都在单一的线程中处理，在Firefox和Safari中，这是浏览器的主线程，Chrome中这是tab的主线程。
 网络操作由几个并行线程执行，并行连接的个数是受限的（通常是2－6个）。
+#http://kb.cnblogs.com/page/129756/
+“解析结束时的处理（Action when the parsing is finished）：在这个阶段，浏览器将文档标记为可交互的，并开始解析处于延时模式中的脚本——这些脚本在文档解析后执行。”
