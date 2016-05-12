@@ -1,3 +1,19 @@
+js异步处理工作机制:
+setTimeout ( function ( ) { 
+     /* Some long block of code... */ 
+    setTimeout (arguments. callee,  10 ); 
+   },  10 ); 
+   
+  setInterval ( function ( ) { 
+     /* Some long block of code... */ 
+   },  10 );
+这两句代码乍一看没什么差别，但是它们是不同的。setTimeout回调函数的执行和上一次执行之间的间隔至少有10ms（可能会更多，但不会少于10ms），
+而setInterval的回调函数将尝试每隔10ms执行一次，不论上次是否执行完毕。
+在这里我们学到了很多知识，总结一下：
+JavaScript引擎是单线程的，强制所有的异步事件排队等待执行
+setTimeout 和 setInterval 在执行异步代码的时候有着根本的不同;一定要注意这一点：当setInterval回调函数第二次被触发时（此时setTimeout函数仍在执行,阻塞状态中）setInterval的第一次触发将被抛弃掉。
+如果一个计时器被阻塞而不能立即执行，它将延迟执行直到下一次可能执行的时间点才被执行（比期望的时间间隔要长些）
+如果setInterval回调函数的执行时间将足够长（比指定的时间间隔长），它们将连续执行并且彼此之间没有时间间隔。
 setTimeout -- 暂停指定的毫秒数后执行指定的代码
   应用场景--颜色渐变：
 var icolor=0;
