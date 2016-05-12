@@ -1,3 +1,17 @@
 seo优化： 相关性、外链接、语义话标签、出钱
 多张图片合为一个图片
 css、js的压缩
+异步加载JS：五种方式
+方案一：<script>标签的async="async"属性
+方案二：<script>标签的defer="defer"属性
+方案三：动态创建<script>标签：
+<strong>(function() {  
+     var s = document.createElement('script');  
+     s.type = 'text/javascript';  
+     s.async = true;  
+     s.src = 'http://yourdomain.com/script.js';  
+     var x = document.getElementsByTagName('script')[0];  
+     x.parentNode.insertBefore(s, x);  
+ })();</strong>  
+ 方案四：AJAX eval（使用AJAX得到脚本内容，然后通过eval_r(xmlhttp.responseText)来运行脚本）
+ 方案五：iframe方式
