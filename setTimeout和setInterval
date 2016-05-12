@@ -1,4 +1,4 @@
-js异步处理工作机制:
+js异步处理工作机制:#http://www.open-open.com/lib/view/open1403399304356.html
 setTimeout ( function ( ) { 
      /* Some long block of code... */ 
     setTimeout (arguments. callee,  10 ); 
