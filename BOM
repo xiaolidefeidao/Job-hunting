@@ -7,7 +7,7 @@ BOM体系：window（窗口，顶层核心）对象包含六个子对象：docum
         history：JavaScript的history对象记录了用户曾经浏览过的页面，并可以实现浏览器前进与后退相似的导航功能可以通过back函数后退一
         		个页面，forward函数前进一个页面，或者使用go函数任意后退或前进页面，还可以通过length属性查看history对象中存储的页面数。
         location：location既是window对象的属性又是document对象的属性，它包含以下属性：protocol、host（hostname、port）、pathname、
-        		search、hash（修改location.hash会跳到当前页面中的anchor(<a id="name">或者<div id="id">等)名字的标记(如果有)，而且页面
+        		search、hash（修改location.hash会跳到当前页面中的anchor(<a href="#chapter5">布局</a>+<a name="chapter5"></a>等)名字的标记(如果有)，而且页面
         		不会被重新加载,location.hash不会随HTTP请求的URL发送给服务器，浏览器会根据hash显示出相应的anchor对象以免用户下翻寻找）
         navigator：中文"导航器"，有属性appCodeName、appName、appVersion、cookieEnabled、userAgent（通常使用navigator.userAgent属性
         			判断用户使用的浏览器与操作系统）等。使用if(winow.addEventListener){}else if(window.attachEvent){}.
