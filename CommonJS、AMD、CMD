@@ -18,4 +18,12 @@ SeaJS只会在真正需要使用(依赖)模块时才执行该模块，SeaJS是�
 SeaJS是并行加载所有依赖的模块, 但不会立即执行模块, 等到真正需要(require)的时候才开始解析。
 而RequireJS会先尽早地执行(依赖)模块, 相当于所有的require都被提前了, 而且模块执行的顺序也不一定100%就是先mod1再mod2。
 RequireJS一样是并行加载所有依赖的模块, 并完成解析后, 再开始执行其他代码。
-在实际开发中我使用webpack，它的语法风格是天然的node.js，它的别名、迁移（各种风范迁移到webpack无须修改source file）、自动化集成
+在实际开发中我使用webpack，它的语法风格是天然的node.js，迁移（各种风范迁移到webpack无须修改source file）、自动化集成;它的别名:
+(别名（resolve.alias） 是 Webpack 的一个配置项，它的作用是把用户的一个请求重定向到另一个路径，例如通过修改 webpack.config.js配置文件，加入：
+  resolve: {
+    alias: {
+        moment: "moment/min/moment-with-locales.min.js"
+    }
+  }
+这样待打包的脚本中的 require('moment'); 其实就等价于 require('moment/min/moment-with-locales.min.js'); 。
+通过别名的使用在本例中可以减少几乎一半的时间。)、
