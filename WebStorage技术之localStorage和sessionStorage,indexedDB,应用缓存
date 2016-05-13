@@ -1,3 +1,6 @@
+淘宝网使用了cookie、localStorage/sessionStorage技术；在localStorage中有一个字段tanxssp_acookie_expires设置了过期时间。
+
+
 远古时期，使用cookies:http请求头上会带着（臃肿，安全隐患），大小4K，主Domain污染(主域名setcookie的内容会加在子域名cookie中)。
 有个HTTP属性，设为true时，cookie只能由服务器端修改。将各子域名的document.domain设为主域名即可实现子域名间的数据共享。
 UserData,只有IE支持，数据最终存在一个XML文件，64K。
