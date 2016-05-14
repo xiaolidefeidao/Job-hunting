@@ -1,4 +1,5 @@
 原型继承对应的继承原型链；call、apply对应的继承this;构造函数对应的继承全部（原型链和this）！！！
+//一个知识点：Animal.length是Animal函数定义中参数的个数（1）；arguments.length是实际传入参数的个数！！！
 function Animal(name) {
     this.name = name;
     this.showName = function () {
