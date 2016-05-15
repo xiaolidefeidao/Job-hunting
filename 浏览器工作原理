@@ -8,7 +8,7 @@ JS解释器－ 用来解释执行JS代码
 数据存储－ 属于持久层，浏览器需要在硬盘中保存类似cookie的各种数据，HTML5定义了Web存储技术（http://www.w3school.com.cn/html5/html_5_webstorage.asp）
 //document.reay（dom文档加载完成）一般比window.onload（所有文件加载完成，js、css、图片等加载完成）先执行；onload 属性在对象已加载时触发。
 下面是渲染引擎在取得内容之后的基本流程：
-　　解析html以构建dom树 -> 构建render树 -> 布局render树 -> 绘制render树
+　　解析html以构建dom树 -> 构建render树 （DOM Tree 和样式结构体组合后构建render tree）-> 布局render树 -> 绘制render树
 　　渲染引擎开始解析html，并将标签转化为内容树中的dom节点。接着，它解析外部CSS文件及style标签中的样式信息。这些样式信息以及html中的可见性指令将被用来构建另一棵树——render树。
 　　Render树由一些包含有颜色和大小等属性的矩形组成，它们将被按照正确的顺序显示到屏幕上。
 　　Render树构建好了之后，将会执行布局过程，它将确定每个节点在屏幕上的确切坐标。
