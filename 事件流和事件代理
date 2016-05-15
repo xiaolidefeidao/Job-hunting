@@ -1,4 +1,4 @@
-***如果一个DOM绑定了多个事件，那么写在前面的事件代码先执行，例如：写在标签中的onclick="alert('hihi')"就会在addEventListener之前执行。***
+***如果一个DOM绑定了多个事件，那么在*目标阶段*写在前面的事件代码先执行，例如：写在标签中的onclick="alert('hihi')"（参数capture默认为false）就会在addEventListener之前执行。***
 window.addEventListener("message",function(event){    
 	if(event.origin !="http://sender:port"){
 		console.log("the event doesn't come from sender!");
