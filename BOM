@@ -11,4 +11,5 @@ BOM体系：window（窗口，顶层核心）对象包含六个子对象：docum
         		不会被重新加载,location.hash不会随HTTP请求的URL发送给服务器，浏览器会根据hash显示出相应的anchor对象以免用户下翻寻找）
         navigator：中文"导航器"，有属性appCodeName、appName、appVersion、cookieEnabled、userAgent（通常使用navigator.userAgent属性
         			判断用户使用的浏览器与操作系统）等。使用if(winow.addEventListener){}else if(window.attachEvent){}.
+        			（navigator.online检测是否在线）
         screen：用于获取用户的屏幕信息，availHeight 属性--窗口可以使用的屏幕高度，单位像素、availWidth属性--窗口可以使用的屏幕宽度，单位像素.
