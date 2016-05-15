@@ -55,7 +55,7 @@ document.write("Visits " + sessionStorage.pagecount + " time(s) this session.");
 </body>
 </html>
 indexedDB,按域名分配独立空间，一个独立域名下可创建多个数据库，每个数据库可创建多个对象存储空间（表），每个表可存储多个对象数据。
-使用transaction(事务)保证数据的一致性和可靠性，（只读、只写、可读可写）；查询要借助游标cusor
+使用transaction(事务)保证数据的一致性和可靠性，（只读、只写、可读可写）；查询要借助游标cusor遍历
 应用缓存：（navigator.online检测是否在线）
 优点：完全离线，资源被缓存、加在更快，降低server负载
 缺点：含有manifest属性的当前请求页无论如何都会被缓存，需要2次刷新才能获取新资源，更新是全局性的、无法单点更新，对链接的参数变化敏感、任何一个参数的修改都会被重新缓存。
