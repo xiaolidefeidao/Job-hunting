@@ -2,6 +2,7 @@
     垃圾回收，但另一方面可能会导致浏览器内存泄漏，优化：在函数执行完之后，删除变量）。
 实战例子：写出优雅的设计，例如：map(funarg) forEach(funarg)，延迟调用：setTimeout(funarg,1000)，回调函数：XHRObject.onreadystatechange
     闭包是一系列代码块（在ECMAScript中是函数），并且静态保存所有父级的作用域。通过这些保存的作用域来搜寻到函数中的自由变量。
+    为什么不用全局变量代替呢？避免变量被误用；避免命名冲突；增强代码的可迁移性，例如：模块
 function f1() {
     var n = 999;
     nAdd = function () {
