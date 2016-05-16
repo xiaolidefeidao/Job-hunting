@@ -20,3 +20,4 @@
  方案四：AJAX eval（使用AJAX得到脚本内容，然后通过eval_r(xmlhttp.responseText)来运行脚本）
  方案五：iframe方式
 5.人文优化：“别让我动脑”
+6.web storage
