@@ -16,7 +16,7 @@ function htmlEncode ( str ) {
 function htmlDecode ( str ) {
     var _str = '';
     if ( str.length == 0 ) return '';
-    _str = str .replace(/&/g, '&');
+    _str = str .replace(/&/g, '&amp;');
     _str = _str.replace(/&lt;/g, '<');
     _str = _str.replace(/&gt;/g, '>');
     _str = _str.replace(/&quot;/g, '"');
