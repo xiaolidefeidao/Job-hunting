@@ -4,7 +4,7 @@
 function getHello() {
 var xhr = new XMLHttpRequest();
 xhr.open("post", "http://b.example.com/Test.ashx", true);
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");　　　 
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");//在POST方法中设置，GET方法中设置了不起作用的
 // 声明请求源
 xhr.setRequestHeader("Origin", "http://a.example.com");
 xhr.onreadystatechange = function () {
