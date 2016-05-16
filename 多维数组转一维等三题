@@ -1,0 +1,63 @@
+多维数组转一维：
+var arr = [1,[[4,5,6],2,[[[7,8,9]]],3]];
+function solution1(arr){
+    var a=arr.toString().split(",");
+    console.log(a);//[ '1', '4', '5', '6', '2', '7', '8', '9', '3' ]
+    var ans=[];
+    for (var i= 0,max= a.length;i<max;i+=1){
+        ans.push(Number(a[i]));
+    }
+    return ans;
+}
+function solution(arr){
+    if (Object.prototype.toString.call(arr)!="[object Array]") return;
+    var ans=[];
+    function fn(arr){
+        for (var i= 0,max=arr.length;i<max;i+=1){
+            if (arr[i].length){
+                fn(arr[i]);
+            }
+            else{
+                ans.push(arr[i]);
+            }
+        }
+    }
+    fn(arr);
+    return ans;
+}
+数字类型转千分位表示：
+var num = 123456789.9; //结果转成千分位表示 123,456,789.9
+function solution(num) {
+    if (typeof num != "number")return;
+    num+="";
+    if (num.indexOf(".")!=-1){
+        num=num.split(".");
+        return fn(num[0])+"."+fn(num[1]);
+    }else{
+        return fn(num);
+    }
+    function fn(num){
+        var l=num.length,
+            ans="";
+        while (l>3){
+            ans=","+num.slice(l-3,l)+ans;
+            l-=3;
+        }
+        ans=num.slice(0,l)+ans;
+        return ans;
+    }
+}
+解析url：
+var url = 'http://s.weibo.com/weibo/Aralic?topnav=1&wvr=6';
+function solution(url) {
+    var _index = url.indexOf("?"),
+        ans={};
+    if (_index == -1)return;
+    url=url.slice(_index+1).split("&");
+    for (var i= 0,max=url.length;i<max;i+=1){
+        var temp=url[i].split("=");
+        ans[temp[0]]=temp[1];
+    }
+    return ans;
+}
+console.log(solution(url));//{ topnav: '1', wvr: '6' }
