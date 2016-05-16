@@ -1,5 +1,38 @@
 一、使用CORS机制
     在服务器端添加一个header (Access-Control-Allow-Origin:{域名//*号代表响应任何主机的请求})
+客户端：
+function getHello() {
+var xhr = new XMLHttpRequest();
+xhr.open("post", "http://b.example.com/Test.ashx", true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");　　　 
+// 声明请求源
+xhr.setRequestHeader("Origin", "http://a.example.com");
+xhr.onreadystatechange = function () {
+if (xhr.readyState == 4 && xhr.status == 200) {
+var responseText = xhr.responseText;
+console.log(responseText);
+}
+}
+xhr.send();
+}
+服务端：
+public class Test : IHttpHandler
+{
+public void ProcessRequest(HttpContext context)
+{
+context.Response.ContentType = "text/plain";
+// 声明接受所有域的请求
+context.Response.AddHeader("Access-Control-Allow-Origin", "*");
+context.Response.Write("Hello World");
+}
+public bool IsReusable
+{
+get
+{
+return false;
+}
+}
+}
 二、使用JSONP
     JSONP即：json padding,使用<script>标签且只能发送'get'请求。
     机制：客户端定义回调函数callback(函数名可自定义，不一定取名callback)，函数名添加在URL发送给服务器(jquery AJAX:jsonp)；
