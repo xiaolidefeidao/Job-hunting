@@ -19,7 +19,7 @@ result(); // 999
 nAdd();//定义nAdd时前面没加var，那么它是一个全局变量
 result(); // 1000
 delete result;
-
+//下面的感觉有点像单例模式！！！
 function baz() {
     var x = 1;
     return {
