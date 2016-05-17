@@ -41,7 +41,7 @@ Array.prototype.unique = function () {
     }
     return ans;
 };
-第三种方法：sort()之后比较相邻的数，此方法最快，但是改变了元数组
+第三种方法：sort()之后比较相邻的数，此方法最快，但是改变了原数组
 Array.prototype.unique = function () {
     this.sort();
     var ans=[this[0]];
