@@ -15,3 +15,10 @@ for (j in man) {
         console.log(j, ":", man[j]);
     }
 }//hands : 2  legs : 2  heads : 1
+
+function sum(a,b){
+    sum.length;//函数sum声明时的形参数，此处为2
+    arguments.length;//函数sum执行时实际传入的参数数目，其值可能大于sum.length
+    arguments.callee;//指向代码所在的函数，此处即sum函数；
+    sum.caller;//指向调用sum函数的函数；在全局中执行sum时，返回null;
+}
