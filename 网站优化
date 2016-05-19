@@ -7,8 +7,8 @@
 2.减少http请求，多张图片合为一个图片；对于一些比较大的图片我们还可以将它切割成比较小的图片进行拼接这样也可以提高网页的下载速度。
 3.css、js的打包压缩
 4.异步加载JS：五种方式
-方案一：<script>标签的async="async"属性
-方案二：<script>标签的defer="defer"属性
+方案一：<script>标签的async="async"属性，脚本是否异步执行。
+方案二：<script>标签的defer="defer"属性，指示脚本不会生成任何文档内容，浏览器可以继续解析并绘制页面。
 方案三：动态创建<script>标签：
 <strong>(function() {  
      var s = document.createElement('script');  
