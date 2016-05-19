@@ -1,4 +1,4 @@
-原型继承对应的继承原型链；call、apply对应的继承this;构造函数对应的继承全部（原型链和this）！！！
+原型继承对应的继承原型链；call、apply对应的继承this;new对应的继承全部（原型链和this）！！！内置函数constructor只继承this部分！！！
 var obj=new Base();
 new操作符具体干了什么呢?其实很简单，就干了三件事情。
 var obj  = {};
