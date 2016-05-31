@@ -20,5 +20,5 @@
     }
 </script>
 </html>
-在chrome中显示：<input type="button" value="click" id="btn1">  指向绑定事件的DOM
+在chrome中显示：<input type="button" value="click" id="btn1">  指向绑定事件的DOM节点
 在IE中显示：[object window]
