@@ -1,1 +1,24 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="button" value="click" id="btn1"/>
+</body>
+<script>
+    var btn = document.getElementById('btn1')
+    if (btn.addEventListener) {
+        btn.addEventListener('click', function (e) {
+            console.log(this);
+        }, false);
+    } else {
+        btn.attachEvent('onclick', function (e) {
+            console.log(this.toString());
+        });
+    }
+</script>
+</html>
+在chrome中显示：<input type="button" value="click" id="btn1">  指向绑定事件的DOM
+在IE中显示：[object window]
