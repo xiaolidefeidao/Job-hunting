@@ -1,5 +1,5 @@
 map、forEach、reduce都不会改变原数组，但是map、forEach的回调函数可以改变原数组。
-ap返回一个新数组、reduce返回一个值、forEach无返回值。遍历（foreach）映射（map）累计（reduce ）
+map返回一个新数组、reduce返回一个值、forEach无返回值。遍历（foreach）映射（map）累计（reduce ）
 var b = [1, 2, 3];
 function callback1(value, index, arr) {
     console.log(index);
