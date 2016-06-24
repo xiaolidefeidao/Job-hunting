@@ -1,0 +1,49 @@
+#http://www.tuicool.com/articles/VF3Uf2E
+ES6中的Object.assign()
+1 设置实例属性
+
+构造器的任务就是设置实例属性。对于这个任务来说变量名总是被认为是冗余的：
+
+class Point {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+我比较喜欢下面的语法，它完全删除了冗余的代码(CoffeeScript 和 TypeScript都可以做到，但是我更喜欢下面这种语法)：
+
+class Point {
+    constructor(this.x, this.y) {
+    }
+}
+Object.assign() 至少也能够让你避免一些冗余：
+
+class Point {
+    constructor(x, y) {
+        Object.assign(this, {x, y});
+    }
+}
+在 ECMAScript 6 中， {x, y} 是 {x: x, y: y} 的一种缩写形式。
+
+2 给对象添加方法
+在 ECMAScript 5 中，可以使用函数表达式来给对象添加方法：
+
+MyClass.prototype.foo = function(arg1, arg2) {
+    // ...
+};
+在 ECMAScript 6 中对于方法 [3] 有一个更简洁的语法。这就要感谢 Object.assign() 了，但是你也不必抛弃原来的语法：
+
+Object.assign(MyClass.prototype, {
+    foo(arg1, arg2) {
+        ...
+    }
+});
+
+3 克隆对象
+
+也可以使用 Object.assign() 来克隆一个对象(浅克隆):
+
+var copy = Object.assign({__proto__: obj.__proto__}, obj);
+如果只对对象的自由属性感兴趣，那更简单：
+
+var copy = Object.assign({}, obj);
