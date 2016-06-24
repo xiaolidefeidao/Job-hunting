@@ -1,0 +1,39 @@
+#http://www.cnblogs.com/snandy/p/4403111.html
+1. this固定，不再善变
+obj = {
+    data: ['John Backus', 'John Hopcroft'],
+    init: function() {
+        document.onclick = ev => {
+            alert(this.data) // ['John Backus', 'John Hopcroft']
+        }
+        // 非箭头函数
+        // document.onclick = function(ev) {
+        //     alert(this.data) // undefined
+        // }
+    }
+}
+obj.init()
+这个很有用，再不用写me，self，_this了，或者bind。
+
+2. 箭头函数不能用new
+var Person = (name, age) => {
+    this.name = name
+    this.age = age
+}
+var p = new Func('John', 33) // error
+　　
+3. 不能使用argument
+var func = () => {
+    console.log(arguments)
+}
+func(55) //
+
+4. 返回对象时需要用小括号包起来，因为大括号被占用解释为代码块了
+var getHash = arr => {
+    // ...
+    return ({
+        name: 'Jack',
+        age: 33
+    })
+}
+　　
