@@ -48,3 +48,6 @@ for (let [key] of map) {
 for (let [,value] of map) {
   // ...
 }
+
+函数参数的默认值-扩展篇
+#https://github.com/ruanyf/es6tutorial/blob/f7494bc67e54073676218846e0fed1edc279f89b/docs/function.md
