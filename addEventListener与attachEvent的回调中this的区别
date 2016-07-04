@@ -21,4 +21,6 @@
 </script>
 </html>
 在chrome中显示：<input type="button" value="click" id="btn1">  指向绑定事件的DOM节点
-在IE中显示：[object window]
+在IE中显示：[object window] this指向window
+在addEventListener注册的事件，在目标阶段，根据代码的先后顺序执行handler函数；
+而在attachEvent注册的事件，在目标阶段，执行顺序与addEventListener正好相反；
