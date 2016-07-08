@@ -1,0 +1,11 @@
+.find() 与 .children() 方法类似，不同的是后者仅沿着 DOM 树向下遍历单一层级。
+$('li.item-ii').find('li') 等价于 $('li', 'li.item-ii')
+$('li', 'li.item-ii')括号里第二个参数如果是jQuery对象或者Dom对象的话，就是以该对象为上下文进行查询。
+这相当于一种简写法，可以缩短源码。当然，如果没有这个参数的话，默认的查询上下文就是整个Dom文档。
+###
+语法
+.map(callback(index,domElement))
+callback(index,domElement)	对当前集合中的每个元素调用的函数对象。
+$("p").append( $("input").map(function(){
+  return $(this).val();
+}).get().join(", ") );
