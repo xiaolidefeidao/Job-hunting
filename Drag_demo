@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>drag</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #drag{
+            width: 300px;
+            height: 300px;
+            background-color: palegreen;
+        }
+    </style>
+</head>
+<body>
+<div id="drag"></div>
+<script>
+    function Drag(id){
+        this.ele=document.getElementById(id);
+        this.ele.style.position='absolute';
+        var self=this;
+        this.ele.onmousedown=function(e){
+            self.getPos(e);
+            document.onmousemove=function(e){
+                self.setPos(e);
+            };
+            self.ele.onmouseup=function(e){
+                document.onmousemove=null;
+                self.ele.onmouseup=null;
+            }
+        };
+
+    }
+    Drag.prototype.getPos=function(e){
+        var e=e||event;
+        this.left= e.clientX-this.ele.offsetLeft;
+        this.top= e.clientY-this.ele.offsetTop;
+    };
+    Drag.prototype.setPos=function(e){
+        var e=e||event;
+        var left= e.clientX-this.left;
+        var top= e.clientY-this.top;
+        if (left <= 0){
+            left = 0;
+        }else if(left >= document.documentElement.clientWidth - this.ele.offsetWidth){//严格模式下,此处的document.documentElement.offsetWidth/scrollWidth为0!!!
+            left = document.documentElement.clientWidth - this.ele.offsetWidth;
+        }
+        if (top<=0){
+            top =0 ;
+        }else if(top >= document.documentElement.clientHeight - this.ele.offsetHeight){
+            top = document.documentElement.clientHeight - this.ele.offsetHeight;
+        }
+        this.ele.style.left=left+'px';
+        this.ele.style.top=top+'px';
+    };
+    new Drag('drag');
+</script>
+</body>
+</html>
