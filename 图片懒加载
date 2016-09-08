@@ -1,0 +1,6 @@
+方案一：当用户下拉至图片位置时开始加载图片
+要点：计算dis_top——>img.offsetTop、offsetParent(距离最近的定位祖父元素)
+      document.documentElement.clientHeight+document.body.scrollTop>=dis_top-50 时，开始加载图片（50用来调整误差）
+
+方案二：先加载模糊的’小‘图片，待模糊图片加载完后，加载清晰图片
+要点：img.onload   opcity
