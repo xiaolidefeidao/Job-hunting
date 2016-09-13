@@ -57,3 +57,13 @@ response.getWriter().println("data:server-sent event is working.");
 response.getWriter().println("data:test server-sent event multi-line data"); 
 response.getWriter().println(); 
 response.getWriter().flush();
+
+//websocket协议的头，搭载在http协议中发送
+GET /chat HTTP/1.1
+Host: server.example.com
+Upgrade: websocket
+Connection: Upgrade
+Sec-WebSocket-Key: x3JJHMbDL1EzLkh9GBhXDw==
+Sec-WebSocket-Protocol: chat, superchat
+Sec-WebSocket-Version: 13
+Origin: http://example.com
