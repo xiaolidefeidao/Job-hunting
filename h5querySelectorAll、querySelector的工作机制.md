@@ -1,0 +1,1 @@
+## 在HTML5中，提供了强大的DOM元素选择API querySelector/querySelectorAll，允许使用JavaScript代码来完成类似CSS选择器的DOM元素选择功能。通常情况下，我们都是使用的document.querySelector/querySelectorAll来选择DOM元素，但是有些时候会使用DOM元素上的querySelector/querySelectorAll方法，此时就有些怪异了。
