@@ -22,7 +22,10 @@ $("#d1").find("div > span")
 那么对应到HTML5中的选择器API就应该是这样写的：
 var d1 = document.querySelector("#d1");
 var spans = d1.querySelectorAll("div > span");
-你期望上面这段代码会返回span#d1-1-1，但是实际上的运行结果会连同span#d1-1一并返回！<pre><code>[<span id="d1-1-1">This span d1-1-1</span>,<span id="d1-2">This is span d1-2</span>]</code></pre>
+你期望上面这段代码会返回span#d1-1-1，但是实际上的运行结果会连同span#d1-1一并返回！
+```html
+<pre><code>[<span id="d1-1-1">This span d1-1-1</span>,<span id="d1-2">This is span d1-2</span>]</code></pre>
+```
 当在一个DOM元素上调用querySelector/querySelectorAll的时候，查找机制是这样的：
 1. 首先在document的范围内进行查找所有满足选择器条件的元素，在上面这段代码中，我们的选择器是div > span，就是所有的直接父元素为div的span元素。
 2. 再看哪些元素是调用querySelector/querySelectorAll的元素的子元素，这些元素将会被返回。这也就说明了为什么d1.querySelectorAll("div > span") 会连同span#d1-2一并返回。
