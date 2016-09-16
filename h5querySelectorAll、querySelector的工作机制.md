@@ -1,7 +1,7 @@
 ### 在HTML5中，提供了强大的DOM元素选择API querySelector/querySelectorAll，允许使用JavaScript代码来完成类似CSS选择器的DOM元素选择功能。通常情况下，我们都是使用的document.querySelector/querySelectorAll来选择DOM元素，但是有些时候会使用DOM元素上的querySelector/querySelectorAll方法，此时就有些怪异了。
 比如说，下面的这样一个HTML页面（示例页面中为了方面说明问题，我为每个元素都加上了ID，但是我们不使用ID选择器来选择元素）：
 
- <pre><code> <body>
+ ```html<body>
       <span id="s0">This is a span direct child of body</span>
       <div id="d1" style="border: 1px solid red;">
           This is div d1
@@ -11,7 +11,7 @@
           </div>
          <span id="d1-2">This is span d1-2</span>
      </div>
- </body></code></pre>
+ </body>```
 在这个场景中，元素div#d1有2个子元素，分别是div#d1-1和span#d1-2，而元素div#d1-1有一个span#div-1-1-1的子元素。如果我想从div#d1上选择span#d1-1-1，如果使用子元素选择器的话，在jQuery中看起来应该是这样的：
 
 $("#d1").find("div > span")
