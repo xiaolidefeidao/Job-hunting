@@ -11,7 +11,7 @@ TIME_WAIT状态的存在有两个理由：（1）让4次挥手关闭流程更加
 拼接；假设一个incarnation connection这时收到的seq=1000, 来了一个lost duplicate为seq=1000, len=1000, 则tcp认为这个lost duplicate合法，
 并存放入了receive buffer，导致传输出现错误。通过一个2MSL TIME_WAIT状态，确保所有的lost duplicate都会消失掉，避免对新连接造成错误。
 #http://blog.chinaunix.net/uid-26833883-id-3627644.html
-应用层
+应用层: http 简单电子邮件传输（SMTP）、文件传输协议（FTP）、网络远程访问协议（Telnet）
 传输层：UDP TCP
 网际层：IP ICMP IGMP(互联网组管理协议)
 链路层：ARP(ip->mac) RARP(mac->ip)
