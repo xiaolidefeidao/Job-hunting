@@ -23,34 +23,37 @@ function getText(url, callback) {
     
 //    readystate为4
 }
+HTTP1.0定义了三种请求方法： GET, POST 和 HEAD（类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头）方法。 
+HTTP1.1新增了五种请求方法：OPTIONS（允许客户端查看服务器的性能）, PUT, DELETE, TRACE（回显服务器收到的请求，主要用于测试或诊断。）
+和 CONNECT（HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器） 方法。
 HTTP状态码：
 1 消息（1字头）
-▪ 100 Continue
-▪ 101 Switching Protocols
+▪ 100 Continue  客户端继续其请求
+▪ 101 Switching Protocols  切换协议，只能切换到更高版本
 ▪ 102 Processing
 2 成功（2字头）
 ▪ 200 OK
 ▪ 201 Created
-▪ 202 Accepted
+▪ 202 Accepted  服务器已经接受请求，稍后返回，适用于nodejs的事件轮询
 ▪ 203 Non-Authoritative Information
-▪ 204 No Content
+▪ 204 No Content 无内容
 ▪ 205 Reset Content
 ▪ 206 Partial Content
 3 重定向（3字头）
 ▪ 300 Multiple Choices
-▪ 301 Moved Permanently
-▪ 302 Move temporarily
+▪ 301 Moved Permanently  永久重定向
+▪ 302 Move temporarily   暂时重定向
 ▪ 303 See Other
-▪ 304 Not Modified
+▪ 304 Not Modified  重定向到本地缓存
 ▪ 305 Use Proxy
 ▪ 306 Switch Proxy
 ▪ 307 Temporary Redirect
 4 请求错误（4字头）
-▪ 400 Bad Request
-▪ 401 Unauthorized
-▪ 403 Forbidden
-▪ 404 Not Found
-▪ 405 Method Not Allowed
+▪ 400 Bad Request  客户端的请求语法错误
+▪ 401 Unauthorized   用户验证
+▪ 403 Forbidden   服务器拒绝执行
+▪ 404 Not Found   为找到资源
+▪ 405 Method Not Allowed   请求头中的方法被禁止
 ▪ 406 Not Acceptable
 ▪ 407 Proxy Authentication Required
 ▪ 408 Request Timeout
@@ -70,14 +73,14 @@ HTTP状态码：
 ▪ 426 Upgrade Required
 ▪ 449 Retry With
 5 服务器错误（5、6字头）
-▪ 500 Internal Server Error
+▪ 500 Internal Server Error  服务器的源码错误
 ▪ 501 Not Implemented
-▪ 502 Bad Gateway
-▪ 503 Service Unavailable
-▪ 504 Gateway Timeout
+▪ 502 Bad Gateway   网关或代理服务器从远端服务器接收到一个无效的请求
+▪ 503 Service Unavailable   服务器超荷负载，不可用，可用来拒绝客户端的连接
+▪ 504 Gateway Timeout  网关或代理服务器处理请求超时
 ▪ 505 HTTP Version Not Supported
 ▪ 506 Variant Also Negotiates
 ▪ 507 Insufficient Storage
 ▪ 509 Bandwidth Limit Exceeded
 ▪ 510 Not Extended
-▪ 600 Unparseable Response Headers
+▪ 600 Unparseable Response Headers  没有返回响应头，只返回实体内容
