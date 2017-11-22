@@ -1,0 +1,52 @@
+场景：用户上传文件和文本
+实现：$.ajax  form表单  FormData
+实例：
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>坑爹的button标签</title>
+    <script src="jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data" id="form">
+    <input type="file" name="img" multiple>
+    <input type="text" name="txt">
+    <button>提交</button>
+</form>
+<script>
+    $(function () {
+        $("button").on("click",function () {
+            $.ajax({
+                url:"../test",
+                type:"post",
+                data: new FormData($("#form")[0]),
+                processData:false,
+                contentType:false,
+                success:function () {
+                    //somecode
+                },
+                error:function () {
+                    //somecode
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>
+知识点：
+form标签中--> enctype:application/x-www-form-urlencoded	在发送前编码所有字符（默认）;
+                      multipart/form-data	不对字符编码。  在使用包含文件上传控件的表单时，必须使用该值。
+                      text/plain	空格转换为 "+" 加号，但不对特殊字符编码。
+$.ajax中-->  processData:布尔值，规定通过请求发送的数据是否转换为查询字符串。默认是 true。一般来说除了字符串data都会被处理成键值对，传文件需设为false
+             contentType:发送数据到服务器时所使用的内容类型。默认是："application/x-www-form-urlencoded"。
+                         设为false时:在上传文件时，form标签的enctype指明了数据类型，此处设为false告诉jQuery不需要对contentType进行处理。
+坑点：
+1. 点击提交后，页面会刷新跳转，返回404
+   why：因为在form标签中设置了method="post"，导致表单提交时页面一定会跳转到action制定的路径，而此处没有设置action属性，便跳转到了无效路径，
+   返回404状态码
+   solution:删除method="post"，在$.ajax中设置type:"post"
+2. 解决问题1之后，发现会刷新当前页面，url中的查询字段带有上次提交的参数
+   why:此处便是最大的坑点，<button>标签在form表单内，ajax在执行后会再触发一次<button>标签的点击事件或者是其他原因，具体不详。
+   solution:将<button>标签改为<input type="button">或者将<button>标签移出form表单。
